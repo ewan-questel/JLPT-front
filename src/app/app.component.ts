@@ -31,8 +31,12 @@ export class AppComponent implements OnInit {
   constructor(private displayKanji: RequestKanjiListService) {}
 
   ngOnInit(): void {
-    this.displayKanji.getKanjiData().subscribe(data => {
+    /* this.displayKanji.getKanjiData().subscribe(data => {
       this.kanjiData = data;
+    }); */
+    this.displayKanji.getKanjiData().subscribe(data => {
+      // Filter Kanji data where jlpt_level is 5
+      this.kanjiData = data.filter((kanji: any) => kanji.jlpt_level === 5);
     });
   }
 
