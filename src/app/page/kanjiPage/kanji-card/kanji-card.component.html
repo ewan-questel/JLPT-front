@@ -1,0 +1,56 @@
+<div *ngIf="kanji" class="row">
+    <div class="card-action">
+        <a (click)="goToKanjiList()">Back</a>
+      </div>
+    <div class="col s12 m8 offset-m2">
+      <h2 class="header center">{{ kanji.character }}</h2>
+      <div class="card horizontal hoverable">
+        <div class="card-image">
+          <!-- Assuming you have an image property in your kanji object -->
+          <img [src]="kanji.image">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <table class="bordered striped">
+              <tbody>
+                <tr>
+                  <td>Character</td>
+                  <td><strong>{{ kanji.character }}</strong></td>
+                </tr>
+                <tr>
+                  <td>Strokes</td>
+                  <td><strong>{{ kanji.strokes }}</strong></td>
+                </tr>
+                <tr>
+                  <td>Grade</td>
+                  <td><strong>{{ kanji.grade }}</strong></td>
+                </tr>
+                <tr>
+                  <td>Frequency</td>
+                  <td><strong>{{ kanji.frequency }}</strong></td>
+                </tr>
+                <tr>
+                  <td>JLPT Level</td>
+                  <td><strong>{{ kanji.jlpt_level }}</strong></td>
+                </tr>
+                <tr>
+                  <td>Meanings</td>
+                  <td><strong>{{ kanji.meanings }}</strong></td>
+                </tr>
+                <tr>
+                  <td>Readings On</td>
+                  <td><strong>{{ kanji.readings_on }}</strong></td>
+                </tr>
+                <tr>
+                  <td>Readings Kun</td>
+                  <td><strong>{{ kanji.readings_kun }}</strong></td>
+                </tr>
+                <!-- Add more rows for other properties -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4 *ngIf='!kanji' class="center">No kanji to display!</h4>
