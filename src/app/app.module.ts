@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KanjiCardComponent } from './page/kanjiPage/kanji-card/kanji-card.component';
 import { KanjiDisplayComponent } from './page/kanjiPage/kanji-display/kanji-display.component';
+import { HomepageComponent } from './page/homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KanjiDisplayComponent,
-    KanjiCardComponent
+    KanjiCardComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

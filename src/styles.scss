@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #26a69a; /* Use your desired color */
+    z-index: 1000; /* Set a high z-index to ensure it appears above other elements */
+}
+
+nav a {
+    color: #ffffff; /* Text color for links */
+}
+
+body {
+    margin-top: 100px; /* Adjust the margin-top to prevent content from being hidden behind the fixed navbar */
+}
+
 .clickable {
     cursor: pointer;
 }

@@ -30,4 +30,7 @@ export class KanjiDisplayComponent {
     this.router.navigate(['/kanji', kanji.id]);
   }
 
+  goToHomepage() {
+    this.router.navigate(['/homepage']);
+  }
 }
