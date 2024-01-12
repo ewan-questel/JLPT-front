@@ -1,16 +1,23 @@
-<div class="container">
-    <div class="row">
-        <div class="col s12">
-          <button class="btn" (click)="goToHomepage()">Go to Homepage</button>
+<div class="row">
+    <div class="col s12">
+      <button class="btn" (click)="goToHomepage()">Go to Homepage</button>
+    </div>
+  </div>
+
+  <div class="row nav-bar">
+    <div class="col s2 nav-item" (click)="onJlptLevelChange(5)" [class.nav-item-selected]="selectedJlptLevel === 5">JLPT Level 5</div>
+    <div class="col s2 nav-item" (click)="onJlptLevelChange(4)" [class.nav-item-selected]="selectedJlptLevel === 4">JLPT Level 4</div>
+    <div class="col s2 nav-item" (click)="onJlptLevelChange(3)" [class.nav-item-selected]="selectedJlptLevel === 3">JLPT Level 3</div>
+    <div class="col s2 nav-item" (click)="onJlptLevelChange(2)" [class.nav-item-selected]="selectedJlptLevel === 2">JLPT Level 2</div>
+    <div class="col s2 nav-item" (click)="onJlptLevelChange(1)" [class.nav-item-selected]="selectedJlptLevel === 1">JLPT Level 1</div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let kanji of kanjiData" class="col m2 s6">
+      <div (click)="goToKanji(kanji)" class="card clickable">
+        <div class="card-content center-align">
+          <p class="kanji-text">{{ kanji.character }}</p>
         </div>
       </div>
-    <div class="row">
-        <div *ngFor="let kanji of kanjiData" class="col m2 s6">
-            <div (click)="goToKanji(kanji)" class="card clickable">
-                <div class="card-content center-align">
-                    <p class="kanji-text">{{ kanji.character }}</p>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
+  </div>

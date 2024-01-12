@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestKanjiListService } from 'src/app/request-kanji-list.service';
 
+
 @Component({
   selector: 'app-kanji-display',
   templateUrl: 'kanji-display.component.html',
@@ -10,6 +11,8 @@ import { RequestKanjiListService } from 'src/app/request-kanji-list.service';
 export class KanjiDisplayComponent {
 
   kanjiData: any;
+  jlptLevels: number[] = [5, 4, 3, 2, 1];
+  selectedJlptLevel: number = 5;
 
   constructor(
     private displayKanji: RequestKanjiListService,
@@ -17,12 +20,17 @@ export class KanjiDisplayComponent {
     ) {}
 
   ngOnInit(): void {
-    // this.displayKanji.getKanjiData().subscribe(data => {
-    //  this.kanjiData = data;
-    //})
-    this.displayKanji.getKanjiData().subscribe(data => {
+    /* this.displayKanji.getKanjiData().subscribe(data => {
       // Filter Kanji data where jlpt_level is 5
       this.kanjiData = data.filter((kanji: any) => kanji.jlpt_level === 5);
+    }); */
+    this.fetchKanjiData();
+  }
+
+  fetchKanjiData(): void {
+    this.displayKanji.getKanjiData().subscribe(data => {
+      // Filter Kanji data based on the selected jlpt_level
+      this.kanjiData = data.filter((kanji: any) => kanji.jlpt_level === +this.selectedJlptLevel);
     });
   }
 
@@ -32,5 +40,10 @@ export class KanjiDisplayComponent {
 
   goToHomepage() {
     this.router.navigate(['/homepage']);
+  }
+
+  onJlptLevelChange(newJlptLevel: number): void {
+    this.selectedJlptLevel = newJlptLevel;
+    this.fetchKanjiData(); // Fetch Kanji data based on the new selectedJlptLevel
   }
 }
