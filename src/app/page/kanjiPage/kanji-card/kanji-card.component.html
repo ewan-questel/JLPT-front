@@ -1,24 +1,27 @@
-<div *ngIf="kanji" class="row">
-    <div class="row">
-        <div class="col s12">
-            <button class="btn" (click)="goToKanjiList()">Back</button>
-        </div>
+<div *ngIf="kanji" class="row justify-content-center">
+    <div class="col-12">
+        <button class="btn" (click)="goToKanjiList()">Back</button>
     </div>
-    <div class="col s12 m8 offset-m2">
-        <h2 class="header center">{{ kanji.character }}</h2>
-        <div class="card horizontal hoverable">
-            <div class="card-image">
-                <!-- Assuming you have an image property in your kanji object -->
-                <img [src]="kanji.image">
-            </div>
+    <div class="col-12 col-md-8" style="display:flex; flex-direction: column; justify-content: center; align-items: center;">
+        <!-- First Card -->
+        <div class="card horizontal hoverable mx-auto my-3" style="width: 30%; border-radius: 10px;">
             <div class="card-stacked">
-                <div class="card-content">
+                <div class="card-content text-center" style="text-align: center;">
+                    <h2 class="header">{{ kanji.character }}</h2>
+                    <p style="font-weight: bold;">Readings Kun: {{ kanji.readings_kun }}</p>
+                    <p style="font-weight: bold;">Readings On: {{ kanji.readings_on }}</p>
+                    <p style="font-weight: bold;">Meanings: {{ kanji.meanings }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Card -->
+        <div class="card horizontal hoverable mx-auto my-3" style="width: 60%;">
+            <div class="card-stacked">
+                <div class="card-content text-center">
+                    <h4 class="header text-center" style="text-align: center;">Additional Information</h4>
                     <table class="bordered striped">
                         <tbody>
-                            <tr>
-                                <td>Character</td>
-                                <td><strong>{{ kanji.character }}</strong></td>
-                            </tr>
                             <tr>
                                 <td>Strokes</td>
                                 <td><strong>{{ kanji.strokes }}</strong></td>
@@ -35,19 +38,6 @@
                                 <td>JLPT Level</td>
                                 <td><strong>{{ kanji.jlpt_level }}</strong></td>
                             </tr>
-                            <tr>
-                                <td>Meanings</td>
-                                <td><strong>{{ kanji.meanings }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Readings On</td>
-                                <td><strong>{{ kanji.readings_on }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Readings Kun</td>
-                                <td><strong>{{ kanji.readings_kun }}</strong></td>
-                            </tr>
-                            <!-- Add more rows for other properties -->
                         </tbody>
                     </table>
                 </div>
